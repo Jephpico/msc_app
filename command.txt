@@ -1,0 +1,2 @@
+conda env update —name obb
+conda env update -f environment.yml
