@@ -1,3 +1,5 @@
+import uvicorn
+
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI
 #from . import models
@@ -6,6 +8,7 @@ from app.routers import crypto
 from app.routers import stocks
 from app.routers import news
 from app.routers import forex
+
 
 app = FastAPI()
 
@@ -22,5 +25,11 @@ app.include_router(stocks.router)
 app.include_router(forex.router)
 
 
+if __name__ == "__main__":
+    uvicorn.run("main:app", port=8080, log_level="info")
+
 #models.Base.metadata.create_all(bind=engine)
+
+
+
 

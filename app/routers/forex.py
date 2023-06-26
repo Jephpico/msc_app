@@ -33,6 +33,7 @@ def forex_spread(
     spread_todict = spread.to_dict(orient="records")
     return spread_todict
 
+
 @router.get("/quote")
 def forex_quote(
     symbol: str, 
