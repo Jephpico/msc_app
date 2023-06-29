@@ -26,7 +26,7 @@ app.include_router(forex.router)
 
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", port=8080, log_level="info")
+    uvicorn.run("main:app", port=5000, log_level="info")
 
 #models.Base.metadata.create_all(bind=engine)
 

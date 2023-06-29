@@ -26,39 +26,40 @@
 
 
 # Base image
-FROM python:3.9-slim
+FROM python:3.9
 
 # Set the working directory
-WORKDIR /app
+#WORKDIR /app
 
 # Copy the requirements file
-COPY requirements.txt .
+#COPY requirements.txt .
 
 # Install build dependencies
- RUN apt-get update && apt-get install -y build-essential
+ #RUN apt-get update && apt-get install -y build-essential
 
 # # Install 'bt' package separately
- RUN pip install --no-cache-dir bt
+ #RUN pip install --no-cache-dir bt
 
 # Update pip
-RUN pip install --no-cache-dir --upgrade pip
+#RUN pip install --no-cache-dir --upgrade pip
 
 
 # Install project dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+#RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the project files
-COPY . .
+#COPY . .
 
 # Expose the port that FastAPI listens on (default is 8000)
-EXPOSE 8080
+#EXPOSE 8080
 
 # Start the FastAPI application with uvicorn
-CMD ["python", "./main.py"]
+##CMD ["python", "./main.py"]
 
 
-# WORKDIR /opt/app
-# COPY . .
-# RUN pip install -r requirements.txt
-# EXPOSE 5000
-# CMD ["python","./main.py"]
+WORKDIR /app
+COPY ./requirements.txt .
+RUN pip install -r requirements.txt
+COPY . /app
+EXPOSE 5000
+CMD ["python","main.py"]
