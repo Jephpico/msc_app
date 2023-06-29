@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Build and push Dockerfile to Heroku
+      - name: Build and push Dockerfile too Heroku
         env:
           HEROKU_APP_NAME: demo-open-app
           DOCKERFILE_DIRECTORY: '.'
