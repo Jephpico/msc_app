@@ -1,10 +1,9 @@
-name: Deploy to App Runner
+name: Deploy to Heroku
 on:
   push:
-    branches: [ master ]
-  workflow_dispatch:
+    branches:
+      - master
 jobs:  
-  deploy:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
